@@ -43,3 +43,9 @@ Creating a class that represents an AI using Q-learning algorithm start by initi
 Lastly, learn function is to determine the reward based on its current chosen action and update the Q table using the reward received and the maximum future reward based on the resulting state due to the chosen action.
 
 # Results
+<img width="546" alt="Screen Shot 2020-03-01 at 12 27 07 AM" src="https://user-images.githubusercontent.com/41890348/75622284-7dd8e100-5b53-11ea-9d8d-8b52c31e6fa1.png">
+<img width="613" alt="Screen Shot 2020-03-01 at 12 26 53 AM" src="https://user-images.githubusercontent.com/41890348/75622285-7f0a0e00-5b53-11ea-8ae3-c3c9ebdbb4c7.png">
+<img width="707" alt="Screen Shot 2020-03-01 at 12 24 58 AM" src="https://user-images.githubusercontent.com/41890348/75622286-803b3b00-5b53-11ea-912a-66e9f365351c.png">
+
+# Conclusion
+        One major challenge of DQNs with only win / loss conditions is measuring the network performance over time. We have found a few ways to do this, including having the agent play a short term reward maximizing symbolic AI every N games as validation. If agent cannot beat an agent that only thinks in the short term, then we need to continue making changes to the network structure, hyper-parameters, and feature representation. Beating this short sighted AI consistently should be our first goal.We must also make sure our training data and labels are formatted in a way to ensure stability. Rewards should be normalized in the [-1., 1.] range, and any discounted future reward which is outside of this range should be clipped.Another factor to consider is the optimizer learning rate. A high learning rate can create instabilities in the neural networks state approximation behavior, resulting in all kinds of catastrophic forgetfulness. Starting at 0.001 is a good idea, and if you note instabilities with this try decreasing it from there. We find that 0.0001 works optimally for longer training sessions.
